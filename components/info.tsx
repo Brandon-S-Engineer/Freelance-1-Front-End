@@ -35,7 +35,7 @@ const getByPath = (obj: AnyObj, path: string): unknown => {
 const pickDateFrom = (obj: AnyObj | null | undefined): Date | null => {
   if (!obj) return null;
   for (const path of DATE_KEY_PATHS) {
-    const dt = coerceDate(getByPath(obj, path));
+    const dt = coerceDate(getByPath(obj, path) as DateLike);
     if (dt) return dt;
   }
   return null;
